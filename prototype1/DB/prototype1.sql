@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 25, 2023 at 05:12 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Hôte : 127.0.0.1
+-- Généré le : lun. 25 sep. 2023 à 17:38
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `prototype2`
+-- Base de données : `prototype1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personne`
+-- Structure de la table `personne`
 --
 
 CREATE TABLE `personne` (
@@ -34,25 +34,25 @@ CREATE TABLE `personne` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `personne`
+-- Déchargement des données de la table `personne`
 --
 
 INSERT INTO `personne` (`Id`, `Nom`, `CNE`) VALUES
-(1, 'amine lamchatab', 'P134500206'),
-(4, 'yassin lamchatab', NULL),
-(5, 'bakkali mohammed', 'P134500102'),
-(8, 'hamid achaou', 'K123456789'),
-(10, 'ait lhssen mohammed', 'Q134500206'),
-(12, 'Ronaldo', 'X123456789'),
-(14, 'leo messi', 'H123456789'),
-(20, 'jalil betroji', 'P987654321'),
-(21, 'amina assaid', 'P456123789'),
-(22, 'Vinícius', 'B123456789');
+(1, 'hussein Bouik ', 'P134500206'),
+(4, 'yasmine daifane ', NULL),
+(5, 'achrafe lyounsy ', 'P134500102'),
+(8, 'ilyas aabida', 'K123456789'),
+(10, 'mohamed aouina', 'Q134500206'),
+(12, 'amine boutouil ', 'X123456789'),
+(14, 'zoubir el alaoui ', 'H123456789'),
+(20, 'mounir jsp ', 'P987654321'),
+(21, 'mehdi joula', 'P456123789'),
+(22, 'ismail zouita ', 'B123456789');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ville`
+-- Structure de la table `ville`
 --
 
 CREATE TABLE `ville` (
@@ -62,7 +62,7 @@ CREATE TABLE `ville` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `ville`
+-- Déchargement des données de la table `ville`
 --
 
 INSERT INTO `ville` (`id`, `Ville`, `personneId`) VALUES
@@ -71,52 +71,52 @@ INSERT INTO `ville` (`id`, `Ville`, `personneId`) VALUES
 (3, 'Tanger', 5),
 (4, 'Agadir', 8),
 (6, 'Casablanca', 10),
-(7, 'Rosario', 14),
-(8, 'Funchal', 12),
+(7, 'safi', 14),
+(8, 'agadir', 12),
 (9, 'Tetouan', 20),
 (10, 'Tanger', 21),
-(11, 'Sao Paulo', 22);
+(11, 'safi ', 22);
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `personne`
+-- Index pour la table `personne`
 --
 ALTER TABLE `personne`
   ADD PRIMARY KEY (`Id`),
   ADD UNIQUE KEY `UQ_CNE_Stagiaire` (`CNE`);
 
 --
--- Indexes for table `ville`
+-- Index pour la table `ville`
 --
 ALTER TABLE `ville`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ville_ibfk_1` (`personneId`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `personne`
+-- AUTO_INCREMENT pour la table `personne`
 --
 ALTER TABLE `personne`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `ville`
+-- AUTO_INCREMENT pour la table `ville`
 --
 ALTER TABLE `ville`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `ville`
+-- Contraintes pour la table `ville`
 --
 ALTER TABLE `ville`
   ADD CONSTRAINT `ville_ibfk_1` FOREIGN KEY (`personneId`) REFERENCES `personne` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
