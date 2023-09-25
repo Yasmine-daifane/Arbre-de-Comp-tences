@@ -43,4 +43,5 @@ class Stagiaire
     {
         $this->Ville = $Ville;
     }
+    
 }

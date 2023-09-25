@@ -1,5 +1,5 @@
 <?php
-// require_once "./prototype1/Data/GestionStagiaire.php";
+
 include "./GestionStagiaire.php";
 
 
@@ -8,9 +8,7 @@ include "./GestionStagiaire.php";
 $GestionStagiaire = new GestionStagiaire();
 $StagiaresData = $GestionStagiaire->getStagiaires();
 
-// echo "<pre>";
-// print_r($StagiaresData);
-// echo "</pre>";
+
 
 
 ?>
@@ -45,7 +43,7 @@ $StagiaresData = $GestionStagiaire->getStagiaires();
 
         td,
         th {
-            border: 1px solid #dddddd;
+            border: 2px solid #dddddd;
             text-align: left;
             padding: 8px;
         }
@@ -56,10 +54,9 @@ $StagiaresData = $GestionStagiaire->getStagiaires();
     </style>
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h2>Arbre des Competences</h2>
+    <div class="container ">
+        <h2> Notre Arbre des Competences</h2>
         <table>
             <tr>
                 <th>Nom</th>
