@@ -1,44 +1,31 @@
 <?php
-class Stagiaire
-{
+class   Stagiaire {
     private $Id;
     private $Nom;
     private $CNE;
-    private $Ville;
 
-    public function getId()
-    {
-        return $this->Id;
-    }
-    public function setId($id)
-    {
+    public function setId($Id) {
         $this->Id = $id;
     }
-    public function getNom()
-    {
-        return $this->Nom;
-    }
-    public function setNom($nom)
-    {
-        $this->Nom = $nom;
+
+    public function getId() {
+        return $this->Id;
     }
 
-    public function getCNE()
-    {
-        return $this->CNE;
+    public function setNom($Non) {
+        $this->nom = $Non;
     }
-    public function setCNE($CNE)
-    {
+    
+    public function getNon() {
+        return $this->nom;
+    }
+
+    public function setCne($CNE) {
         $this->CNE = $CNE;
     }
-
-    public function getVille()
-    {
-        return $this->Ville;
+    
+    public function getCNE() {
+        return $this->CNE;
     }
-    public function setVille($Ville)
-    {
-        $this->Ville = $Ville;
-    }
-
 }
+?>

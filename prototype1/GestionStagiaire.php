@@ -5,51 +5,47 @@ include  "./Stagiaire.php";
 
 class GestionStagiaire
 {
-    
-    private $serverName = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname  = "prototype1";
-    private $charset = "utf8mb4";
-    protected $pdo;
+    // Connect Databases
+    private $host = 'localhost';
+    private $user = 'root';
+    private $password = '';
+    private $dbName = 'prototype1';
 
-    public function __construct()
-    {
-        $this->serverName = "localhost";
-        $this->username = "root";
-        $this->password = "";
-        $this->dbname = "prototype1";
-        $this->charset = "utf8mb4";
-
-        
+    private function connect() {
         try {
-            $DB_con = "mysql:host=" . $this->serverName . ";dbname=" . $this->dbname . ";charset=" . $this->charset;
-            $this->pdo = new PDO($DB_con, $this->username, $this->password);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          
-            return $this->pdo;
-        } catch (PDOException $e) {
-            echo "Failed to connect with MySQL: " . $e->getMessage();
+            $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
+            $pdo = new PDO($dsn, $this->user, $this->password);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            return $pdo;
+        } catch(PDOException $e) {
+            echo 'connect is error' . $e->getMessage();
         }
     }
 
-    public function getStagiaires()
-    {
-        $sql = "SELECT * FROM personne LEFT JOIN ville ON personne.id = ville.personneId WHERE ville.Ville IS NULL OR ville.Ville IS NOT NULL;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
-        $StagiairesData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $Stagiaires = array();
-        foreach ($StagiairesData as $StagiaireData) {
-            $Stagiaire = new Stagiaire(); 
-            $Stagiaire->setId($StagiaireData['id']);
-            $Stagiaire->setNom($StagiaireData['Nom']);
-            $Stagiaire->setCNE($StagiaireData['CNE']);
-            $Stagiaire->setVille($StagiaireData['Ville']);
-            array_push($Stagiaires, $Stagiaire);
+    // getstagire
+    public function getStagiare() {
+        $stmt = $this->connect()->prepare("SELECT * FROM personne WHERE Type = 'Stagiaire' ");
+        if(!$stmt->execute()) {
+            $stmt = null;
+            exit();
         }
-        return $Stagiaires;
+
+        $stagiaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $stagiairesData = [];
+    
+
+        foreach($stagiaires as $stagiaire) {
+            $GestionStagire = new  Stagiaire();
+            $GestionStagire->setId($stagiaire['Id']);
+            $GestionStagire->setNom($stagiaire['Nom']);
+            $GestionStagire->setCne($stagiaire['CNE']);
+            array_push($stagiairesData, $GestionStagire);
+        }
+
+        return $stagiairesData;
     }
+
 }
 
 
