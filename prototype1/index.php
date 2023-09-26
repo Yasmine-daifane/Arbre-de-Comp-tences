@@ -1,21 +1,8 @@
 <?php
-
-include "./GestionStagiaire.php";
-
-
-
-// Trouver tous les stagiaire depuis la base de données 
+include "./GestionStagiaire.php"; 
 $GestionStagiaire = new GestionStagiaire();
 $StagiaresData = $GestionStagiaire->getStagiaires();
-
-
-
-
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -30,24 +17,20 @@ $StagiaresData = $GestionStagiaire->getStagiaires();
             width: 80%;
             margin: 0 auto;
         }
-
         h2 {
             text-align: center;
         }
-
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 100%;
         }
-
         td,
         th {
             border: 2px solid #dddddd;
             text-align: left;
             padding: 8px;
         }
-
         tr:nth-child(even) {
             background-color: #dddddd;
         }
@@ -78,8 +61,5 @@ $StagiaresData = $GestionStagiaire->getStagiaires();
             <?php } ?>
         </table>
     </div>
-
-
 </body>
-
 </html>

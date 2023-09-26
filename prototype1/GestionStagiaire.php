@@ -35,14 +35,11 @@ class GestionStagiaire
 
     public function getStagiaires()
     {
-        $sql = "SELECT * FROM personne LEFT JOIN ville ON personne.id = ville.personneId
-                WHERE ville.Ville IS NULL OR ville.Ville IS NOT NULL;";
+        $sql = "SELECT * FROM personne LEFT JOIN ville ON personne.id = ville.personneId WHERE ville.Ville IS NULL OR ville.Ville IS NOT NULL;";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $StagiairesData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         $Stagiaires = array();
-
         foreach ($StagiairesData as $StagiaireData) {
             $Stagiaire = new Stagiaire(); 
             $Stagiaire->setId($StagiaireData['id']);
@@ -51,7 +48,6 @@ class GestionStagiaire
             $Stagiaire->setVille($StagiaireData['Ville']);
             array_push($Stagiaires, $Stagiaire);
         }
-
         return $Stagiaires;
     }
 }
