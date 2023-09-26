@@ -1,7 +1,7 @@
 <?php
 include "./GestionStagiaire.php"; 
 $GestionStagiaire = new GestionStagiaire();
-$StagiaresData = $GestionStagiaire->getStagiaires();
+$StagiaresData = $GestionStagiaire->getStagiare();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,7 +44,6 @@ $StagiaresData = $GestionStagiaire->getStagiaires();
             <tr>
                 <th>Nom</th>
                 <th>CNE</th>
-                <th>Ville</th>
             </tr>
             <?php
             foreach ($StagiaresData as $Stagiaire) {
@@ -54,9 +53,7 @@ $StagiaresData = $GestionStagiaire->getStagiaires();
                     <td>
                         <?= $Stagiaire->getCNE() ? $Stagiaire->getCNE() : "null"; ?>
                     </td>
-                    <td>
-                        <?= $Stagiaire->getVille() ? $Stagiaire->getVille() : "null"; ?>
-                    </td>
+                  
                 </tr>
             <?php } ?>
         </table>

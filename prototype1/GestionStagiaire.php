@@ -9,7 +9,7 @@ class GestionStagiaire
     private $host = 'localhost';
     private $user = 'root';
     private $password = '';
-    private $dbName = 'prototype1';
+    private $dbName = 'DataBase1';
 
     private function connect() {
         try {
@@ -24,7 +24,7 @@ class GestionStagiaire
 
     // getstagire
     public function getStagiare() {
-        $stmt = $this->connect()->prepare("SELECT * FROM personne WHERE Type = 'Stagiaire' ");
+        $stmt = $this->connect()->prepare("SELECT * FROM personne  ");
         if(!$stmt->execute()) {
             $stmt = null;
             exit();

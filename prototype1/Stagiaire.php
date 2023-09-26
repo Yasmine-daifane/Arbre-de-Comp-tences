@@ -5,22 +5,22 @@ class   Stagiaire {
     private $CNE;
 
     public function setId($Id) {
-        $this->Id = $id;
+        $this->Id = $Id;
     }
 
     public function getId() {
         return $this->Id;
     }
 
-    public function setNom($Non) {
-        $this->nom = $Non;
+    public function setNom($Nom) {
+        $this->Nom = $Nom;
     }
     
-    public function getNon() {
-        return $this->nom;
+    public function getNom() {
+        return $this->Nom;
     }
 
-    public function setCne($CNE) {
+    public function setCNE($CNE) {
         $this->CNE = $CNE;
     }
     
