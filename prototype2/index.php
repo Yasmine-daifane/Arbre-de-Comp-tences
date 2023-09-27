@@ -2,6 +2,7 @@
 include "./Managers/GestionStagiaire.php";
 
 $gestionStagiaire = new GestionStagiaire();
+$stagiairs = $gestionStagiaire->GetAllData();
 
 
 ?>
@@ -30,7 +31,7 @@ $gestionStagiaire = new GestionStagiaire();
                 <th>Actions</th>
             </tr>
             <?php
-            foreach ($stagiairs as $stagiair) {
+            foreach ( $stagiairs as $stagiair) {
             ?>
                 <tr>
                     <td>

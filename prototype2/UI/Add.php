@@ -15,9 +15,9 @@ $gestionStagiaire = new GestionStagiaire();
 
 if (!empty($_POST)) {
     $stagiair = new   Stagiaire();
-    $stagiair->setId($_POST['Id']);
-    $stagiair->setNom($_POST['Nom']);
-    $stagiair->setDescription($_POST['CNE']);
+    $stagiair->SetId($_POST['Id']);
+    $stagiair->SetNom($_POST['Nom']);
+    $stagiair->SetCNE($_POST['CNE']);
 	$gestionStagiaire ->Add($stagiair);
 
 	// Redirection vers la page index.php
