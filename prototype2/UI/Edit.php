@@ -41,7 +41,7 @@ if(isset($_POST['Edit'])){
 <h1 class="text-center">Edit les infos du stagiaires : <?= $Stagiair->GetNom() ?></h1>
 <form method="post" action="">
     <input type="hidden" required="required" 
-        id="Id" Nom="Id"   
+        id="Id" name="Id"   
         value=<?php echo $Stagiair->getId()?> >
 
     <div class="input-group mb-3">
