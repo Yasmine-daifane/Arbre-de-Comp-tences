@@ -18,10 +18,46 @@ $stagiairs = $gestionStagiaire->GetAllData();
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./UI/style/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js " ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Gestion des stagiaires</title>
 </head>
+
+<div style="width: 50%;">
+            <canvas id="internChart"></canvas>
+        </div>
+    
+    <script>
+            // Fetch data from the PHP script
+            fetch('chart_data.php')
+                .then(response => response.json())
+                .then(data => {
+                    var ctx = document.getElementById('internChart').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: data.labels,
+                            datasets: [{
+                                label: 'Interns by ville',
+                                data: data.data,
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        </script>
 
 <body>
     <div>
