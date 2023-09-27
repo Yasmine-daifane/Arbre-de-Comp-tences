@@ -23,8 +23,8 @@ $stagiairs = $gestionStagiaire->GetAllData();
 
 <body>
     <div>
-        <a class="btn btn-primary" href="./UI/Add.php">Ajouter un Stagiaire</a>
-        <table class="table table-success table-striped table-hover">
+        <a class="btn btn-light" href="./UI/Add.php">Ajouter un Stagiaire</a>
+        <table class="table table-dark table-striped table-hover">
             <tr>
                 <th>Nom</th>
                 <th>CNE</th>
