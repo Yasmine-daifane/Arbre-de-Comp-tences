@@ -1,7 +1,4 @@
 <?php
-
-
-
 /**
  * Class for database interaction
  */

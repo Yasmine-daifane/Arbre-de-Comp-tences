@@ -101,8 +101,6 @@ if (isset($_REQUEST['delete']) && $_REQUEST['delete'] == 'yes') {
         </table>
 
 </section><!-- /.container -->
-
-
 <footer class="footer">
     <div class="container">
         <p class="text-muted">
@@ -112,8 +110,6 @@ if (isset($_REQUEST['delete']) && $_REQUEST['delete'] == 'yes') {
         </p>
     </div>
 </footer>
-
-
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
