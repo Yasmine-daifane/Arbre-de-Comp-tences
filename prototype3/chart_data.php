@@ -1,8 +1,8 @@
 <?php
-// Connect to your MySQLi database (replace with your actual database credentials)
+// Database connection code (replace with your database credentials)
 $servername = "localhost";
-$username = "your_username";
-$password = "your_password";
+$username = "root";
+$password = "";
 $dbname = "database1";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,26 +11,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch data from the database
-$query = "SELECT ville, COUNT(*) AS count FROM personne GROUP BY ville";
+// SQL query to get data
+$query = "SELECT ville.Id, ville.Nom AS VilleNom, COUNT(personne.Id) AS TrainerCount 
+          FROM personne 
+          INNER JOIN ville ON personne.Ville_Id = ville.Id 
+          GROUP BY ville.Id, ville.Nom";
+
 $result = $conn->query($query);
 
 $data = array();
-$labels = array();
 
 while ($row = $result->fetch_assoc()) {
-    $labels[] = $row['ville'];
-    $data[] = $row['ville'];
+    $data[] = $row;
 }
-
-// Prepare the data as JSON for Chart.js
-$response = array(
-    'labels' => $labels,
-    'data' => $data
-);
-
-echo json_encode($response);
 
 // Close the database connection
 $conn->close();
+
+// Return data as JSON
+echo json_encode($data);
 ?>

@@ -1,15 +1,11 @@
 <?php
 include "./Managers/GestionStagiaire.php";
-
 $gestionStagiaire = new GestionStagiaire();
 $stagiairs = $gestionStagiaire->GetAllData();
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,43 +18,6 @@ $stagiairs = $gestionStagiaire->GetAllData();
 
     <title>Gestion des stagiaires</title>
 </head>
-
-<div style="width: 50%;">
-            <canvas id="internChart"></canvas>
-        </div>
-    
-    <script>
-            // Fetch data from the PHP script
-            fetch('chart_data.php')
-                .then(response => response.json())
-                .then(data => {
-                    var ctx = document.getElementById('internChart').getContext('2d');
-                    var chart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: data.labels,
-                            datasets: [{
-                                label: 'Interns by ville',
-                                data: data.data,
-                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                                borderColor: 'rgba(75, 192, 192, 1)',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-        </script>
-
 <body>
     <div>
         <a class="btn btn-primary" href="./UI/Add.php">Ajouter un Stagiaire</a>
@@ -89,6 +48,47 @@ $stagiairs = $gestionStagiaire->GetAllData();
             <?php } ?>
         </table>
     </div>
+
+                                         <!-- chart  -->
+    <div style="width: 50%;">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <script>
+    // Fetch data from the PHP script
+    fetch('chart_data.php')
+        .then(response => response.json())
+        .then(data => {
+            // Extract data for labels and dataset
+            const labels = data.map(item => item.VilleNom);
+            const datasetData = data.map(item => item.TrainerCount);
+
+            // Create a Chart.js chart
+            var chart = new Chart(document.getElementById('chart'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Combien de stagiaires exicte dans cette ville',
+                        data: datasetData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+</script>
 </body>
 
 </html>
