@@ -59,8 +59,6 @@ class StudentBLO {
         return $affectedRows;
     }
 
-
-
     public function DeleteStudent($studentId) {
 
         $affectedRows = 0;
@@ -99,3 +97,5 @@ class StudentBLO {
         return $this->studentDao->IsEmailExists($email, $id);
     }
 }
+
+
