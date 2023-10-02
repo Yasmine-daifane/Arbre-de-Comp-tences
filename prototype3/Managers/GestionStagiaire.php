@@ -31,7 +31,9 @@ if (file_exists('./Entities/Stagiaire.php')) {
 
     public function GetAllData()
     {
-        $sql = 'SELECT * FROM personne';
+        $sql = 'SELECT personne.*, ville.Nom AS VilleNom 
+        FROM personne 
+        INNER JOIN ville ON personne.Ville_Id = ville.Id';
         $query = mysqli_query($this->getConnection(), $sql);
         $stagiairs_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
         $stagiairs = array();
@@ -40,19 +42,19 @@ if (file_exists('./Entities/Stagiaire.php')) {
             $stagiair->SetId($stagiair_data['Id']);
             $stagiair->SetNom($stagiair_data['Nom']);
             $stagiair->SetCNE($stagiair_data['CNE']);
-            
+            $stagiair->SetVilleNom($stagiair_data['VilleNom']);
             array_push($stagiairs, $stagiair);
         }
         return   $stagiairs;
     }
  
-    public function Add($stagiair)
+    public function Add($stagiair, $VilleId)
     {
         $Nom = $stagiair->GetNom();
-        $CNE =$stagiair->GetCNE();
-   
+        $CNE = $stagiair->GetCNE();
+    
         // requête SQL
-        $sql = "INSERT INTO `personne`(`Nom`, `CNE`,`Ville_Id`) VALUES ('$Nom','$CNE','$Ville')";
+        $sql = "INSERT INTO `personne`(`Nom`, `CNE`, `Ville_Id`) VALUES ('$Nom', '$CNE', '$VilleId')";
         mysqli_query($this->getConnection(), $sql);
     }
 
@@ -91,7 +93,7 @@ if (file_exists('./Entities/Stagiaire.php')) {
         $cities = [];
         $sql = "SELECT * FROM ville";
         $result = mysqli_query($this->getConnection(), $sql);
-        
+    
         if (!$result) {
             // Handle the query error here, if needed
             return $cities;
@@ -103,6 +105,7 @@ if (file_exists('./Entities/Stagiaire.php')) {
     
         return $cities;
     }
+    
     
 
      

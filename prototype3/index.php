@@ -41,8 +41,8 @@ $stagiairs = $gestionStagiaire->GetAllData();
                         <?= $stagiair->GetCNE() ?>
                     </td>
                     <td>
-                  
-                    </td>
+            <?= $stagiair->GetVilleNom() ?> 
+        </td>
                     <td>
 
                         <a class="btn btn-danger" href="./UI/Edit.php?Id=<?php echo $stagiair->GetId() ?>">Edite</a>

@@ -19,7 +19,10 @@ if (!empty($_POST)) {
     $stagiair->SetId($_POST['Id']);
     $stagiair->SetNom($_POST['Nom']);
     $stagiair->SetCNE($_POST['CNE']);
-	$gestionStagiaire ->Add($stagiair);
+	$VilleId = $_POST['Ville_Id'];
+
+    $gestionStagiaire->Add($stagiair, $VilleId);
+	
 
 	// Redirection vers la page index.php
 	header("Location: ../index.php");
@@ -62,13 +65,13 @@ if (!empty($_POST)) {
 
 		
 		<div class="mb-3">
-      <label for="citySelect">Select a City:</label>
-<select id="citySelect">
-    <option value="" disabled selected>Select a city</option>
-    <?php foreach ($cities as $city) { ?>
-        <option value="<?php echo $city['id']; ?>"><?php echo $city['name']; ?></option>
-    <?php } ?>
-</select>
+    <label for="citySelect">Select a City:</label>
+    <select id="citySelect" name="Ville_Id"> 
+        <option value="" disabled selected>Select a city</option>
+        <?php foreach ($cities as $city) { ?>
+            <option value="<?php echo $city['id']; ?>"><?php echo $city['name']; ?></option>
+        <?php } ?>
+    </select>
 </div>
 		<div>
 			<button class="btn btn-primary" type="submit" >Add</button>

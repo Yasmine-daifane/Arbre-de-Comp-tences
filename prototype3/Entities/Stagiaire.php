@@ -3,6 +3,7 @@ class Stagiaire {
     private $Id;
     private $CNE;
     private $Nom;
+    private $VilleNom;
  
 
     public function GetId() {
@@ -28,8 +29,13 @@ class Stagiaire {
         $this->Nom = $Nom;
     }
 
+    public function GetVilleNom() {
+        return $this->VilleNom;
+    }
 
-
+    public function SetVilleNom($VilleNom) { 
+        $this->VilleNom = $VilleNom;
+    }
 
 }
 ?>
