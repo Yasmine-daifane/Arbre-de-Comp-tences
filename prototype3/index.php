@@ -41,7 +41,7 @@ $stagiairs = $gestionStagiaire->GetAllData();
                         <?= $stagiair->GetCNE() ?>
                     </td>
                     <td>
-                    <?= $stagiair->GetVille() ?>
+                  
                     </td>
                     <td>
 

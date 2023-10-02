@@ -40,6 +40,7 @@ if (file_exists('./Entities/Stagiaire.php')) {
             $stagiair->SetId($stagiair_data['Id']);
             $stagiair->SetNom($stagiair_data['Nom']);
             $stagiair->SetCNE($stagiair_data['CNE']);
+            
             array_push($stagiairs, $stagiair);
         }
         return   $stagiairs;
@@ -49,9 +50,9 @@ if (file_exists('./Entities/Stagiaire.php')) {
     {
         $Nom = $stagiair->GetNom();
         $CNE =$stagiair->GetCNE();
-        $Ville =$stagiair->GetVille() ;
+   
         // requête SQL
-        $sql = "INSERT INTO `personne`(`Nom`, `CNE`,``Ville_Id`) VALUES ('$Nom','$CNE','$Ville')";
+        $sql = "INSERT INTO `personne`(`Nom`, `CNE`,`Ville_Id`) VALUES ('$Nom','$CNE','$Ville')";
         mysqli_query($this->getConnection(), $sql);
     }
 
@@ -84,6 +85,23 @@ if (file_exists('./Entities/Stagiaire.php')) {
             $msg = 'Erreur' . mysqli_errno($this->getConnection());
             throw new Exception($msg);
         }
+    }
+    public function getCities()
+    {
+        $cities = [];
+        $sql = "SELECT * FROM ville";
+        $result = mysqli_query($this->getConnection(), $sql);
+        
+        if (!$result) {
+            // Handle the query error here, if needed
+            return $cities;
+        }
+    
+        while ($cityData = mysqli_fetch_assoc($result)) {
+            $cities[] = ['id' => $cityData['Id'], 'name' => $cityData['Nom']];
+        }
+    
+        return $cities;
     }
     
 

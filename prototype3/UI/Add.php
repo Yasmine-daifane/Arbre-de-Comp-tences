@@ -12,13 +12,13 @@ if (file_exists('./Managers/GestionStagiaire.php')) {
 
 // Trouver tous les employés depuis la base de données 
 $gestionStagiaire = new GestionStagiaire();
+$cities = $gestionStagiaire->getCities();
 
 if (!empty($_POST)) {
     $stagiair = new   Stagiaire();
     $stagiair->SetId($_POST['Id']);
     $stagiair->SetNom($_POST['Nom']);
     $stagiair->SetCNE($_POST['CNE']);
-	$stagiair->SetVille($_POST['ville']);
 	$gestionStagiaire ->Add($stagiair);
 
 	// Redirection vers la page index.php
@@ -60,10 +60,16 @@ if (!empty($_POST)) {
 			<input type="text" required="required" class="form-control" id="CNE" name="CNE" placeholder="CNE">
 		</div>
 
-		<div class="input-group mb-3">
-			<label for="Ville">Ville</label>
-			<input type="text" required="required" class="form-control" id="Ville" name="Ville" placeholder="Ville">
-		</div>
+		
+		<div class="mb-3">
+      <label for="citySelect">Select a City:</label>
+<select id="citySelect">
+    <option value="" disabled selected>Select a city</option>
+    <?php foreach ($cities as $city) { ?>
+        <option value="<?php echo $city['id']; ?>"><?php echo $city['name']; ?></option>
+    <?php } ?>
+</select>
+</div>
 		<div>
 			<button class="btn btn-primary" type="submit" >Add</button>
 			<a class="btn btn-info" href="../index.php">Annuler</a>
