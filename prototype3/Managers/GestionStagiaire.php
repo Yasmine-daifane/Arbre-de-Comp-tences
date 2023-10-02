@@ -49,8 +49,9 @@ if (file_exists('./Entities/Stagiaire.php')) {
     {
         $Nom = $stagiair->GetNom();
         $CNE =$stagiair->GetCNE();
+        $Ville =$stagiair->GetVille() ;
         // requête SQL
-        $sql = "INSERT INTO `personne`(`Nom`, `CNE`) VALUES ('$Nom','$CNE')";
+        $sql = "INSERT INTO `personne`(`Nom`, `CNE`,``Ville_Id`) VALUES ('$Nom','$CNE','$Ville')";
         mysqli_query($this->getConnection(), $sql);
     }
 

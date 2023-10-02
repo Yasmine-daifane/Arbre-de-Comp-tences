@@ -3,6 +3,7 @@ class Stagiaire {
     private $Id;
     private $CNE;
     private $Nom;
+ 
 
     public function GetId() {
         return $this->Id;
@@ -26,5 +27,9 @@ class Stagiaire {
     public function SetNom($Nom) { 
         $this->Nom = $Nom;
     }
+
+
+
+
 }
 ?>

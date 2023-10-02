@@ -18,6 +18,7 @@ if (!empty($_POST)) {
     $stagiair->SetId($_POST['Id']);
     $stagiair->SetNom($_POST['Nom']);
     $stagiair->SetCNE($_POST['CNE']);
+	$stagiair->SetVille($_POST['ville']);
 	$gestionStagiaire ->Add($stagiair);
 
 	// Redirection vers la page index.php
@@ -59,6 +60,10 @@ if (!empty($_POST)) {
 			<input type="text" required="required" class="form-control" id="CNE" name="CNE" placeholder="CNE">
 		</div>
 
+		<div class="input-group mb-3">
+			<label for="Ville">Ville</label>
+			<input type="text" required="required" class="form-control" id="Ville" name="Ville" placeholder="Ville">
+		</div>
 		<div>
 			<button class="btn btn-primary" type="submit" >Add</button>
 			<a class="btn btn-info" href="../index.php">Annuler</a>

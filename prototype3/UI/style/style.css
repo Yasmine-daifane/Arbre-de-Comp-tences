@@ -24,3 +24,14 @@ input,label,button, form a{
     margin : 5px;
     width : 120px
 }
+
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optionally, set a height to center vertically within the viewport */
+}
+body {
+    background-color: black;
+}
