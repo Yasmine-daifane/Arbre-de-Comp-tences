@@ -1,7 +1,4 @@
  <?php 
- 
- 
-//  include  "./Stagiaire.php";
 if (file_exists('./Entities/Stagiaire.php')) {
     include './Entities/Stagiaire.php';
 } elseif (file_exists('../Entities/Stagiaire.php')) {
@@ -57,7 +54,6 @@ if (file_exists('./Entities/Stagiaire.php')) {
         $sql = "INSERT INTO `personne`(`Nom`, `CNE`, `Ville_Id`) VALUES ('$Nom', '$CNE', '$VilleId')";
         mysqli_query($this->getConnection(), $sql);
     }
-
     public function Delet($Id)
     {
         $sql = "DELETE FROM personne WHERE Id= '$Id'";
@@ -79,9 +75,9 @@ if (file_exists('./Entities/Stagiaire.php')) {
 
     public function Edit($Id,$Nom,$CNE)
     {
-        // Requête SQL
+    
         $sql = "UPDATE personne SET  Nom='$Nom', CNE='$CNE' WHERE Id= '$Id'";
-        //  
+     
         mysqli_query($this->getConnection(), $sql);
         if (mysqli_error($this->getConnection())) {
             $msg = 'Erreur' . mysqli_errno($this->getConnection());
@@ -95,7 +91,7 @@ if (file_exists('./Entities/Stagiaire.php')) {
         $result = mysqli_query($this->getConnection(), $sql);
     
         if (!$result) {
-            // Handle the query error here, if needed
+          
             return $cities;
         }
     
@@ -105,6 +101,7 @@ if (file_exists('./Entities/Stagiaire.php')) {
     
         return $cities;
     }
+    
     
     
 
