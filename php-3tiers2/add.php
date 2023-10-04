@@ -25,9 +25,10 @@ if(isset ($_POST ['studentSubmitButton'])&& $_POST ['studentSubmitButton'] == 'A
             $errorMessage = 'Record can\'t be added . Operation failed .' ;
         }
     }
+    
 }
 
-$pageTitle = 'Add New Student ' ;
+$pageTitle = 'Add New Student' ;
 include_once ("Templates/header.php") ;
 
 ?>
@@ -39,7 +40,8 @@ include_once ("Templates/header.php") ;
 
 <?php  if($errorMessage !='') :    ?>
 
-    <div class="alert alert-danger" ><?php echo $errorMessage ; ?> </div>
+    <div class="alert alert-danger" ><?php echo $errorMessage; ?> </div>
+    <?php endif ?>
 
     <form action="add.php" method="POST" name ="studentInfoForm" id= "studentInfoFrom " class="form-horizontal">
         <div class="form-group">
