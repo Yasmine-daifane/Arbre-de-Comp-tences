@@ -39,4 +39,37 @@ include_once ("Templates/header.php") ;
 
 <?php  if($errorMessage !='') :    ?>
 
-    <div class=
+    <div class="alert alert-danger" ><?php echo $errorMessage ; ?> </div>
+
+    <form action="add.php" method="POST" name ="studentInfoForm" id= "studentInfoFrom " class="form-horizontal">
+        <div class="form-group">
+            <label  fro ="studentName" class= "col-sm-2 control-label">Name</label>
+            <div class="col-sm-4">
+                <input type="text" name="studentName"  id="studentName" class="form-control" placeholder="Name" />
+            </div>
+      </div>
+
+      <div class="form-group">
+            <label  fro ="studentEmail" class= "col-sm-2 control-label">Email</label>
+            <div class="col-sm-4">
+                <input type="text" name="studentEmail"  id="studentEmail" class="form-control" placeholder="Email" />
+            </div>
+      </div>
+
+
+      <div class="form-group">
+            <label  fro ="studentDateOfBirth" class= "col-sm-2 control-label">Date Of Birth</label>
+            <div class="col-sm-4">
+                <input type="text" name="studentDateOfBirth"  id="studentDateOfBirth" class="form-control" placeholder="Date Of Birth" />
+            </div>
+      </div>
+
+      <div class ="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+            <input type="submit" name="studentSubmitButton" id="studentSubmitButton" value= "Add Student" class="btn btn-primary" />
+        </div>
+     </div>
+    
+    </form>
+
+    <?php include_once("Templates/footer.php") ?>
