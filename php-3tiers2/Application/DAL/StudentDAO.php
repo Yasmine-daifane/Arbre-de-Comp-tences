@@ -13,7 +13,7 @@ class studentDAO {
     }
 
     public function GetAllStudents(){
-        $sql="SELECT *FROM student";
+        $sql="SELECT *FROM Student";
         $raw_result =$this->db->prepare($sql);
         if (!$raw_result ->execute()){
             $raw_result=null ;
@@ -36,7 +36,7 @@ class studentDAO {
         if ($studentId <= 0){
             return false;
         }
-        $sql = "SELECT * FROM student WHERE Id = :studentId";
+        $sql = "SELECT * FROM Student WHERE Id = :studentId";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':studentId', $studentId, PDO::PARAM_INT);
         $stmt->execute();
@@ -52,7 +52,7 @@ class studentDAO {
 
     
      public function AddStudent($student){
-        $sql = "INSERT INTO student (`Name`,`Email`,`DateOfBirth` ) VALUES (:name,:email ,:dateOfBirth ) " ;
+        $sql = "INSERT INTO Student(`Name`,`Email`,`DateOfBirth` ) VALUES (:name,:email ,:dateOfBirth ) " ;
   
 
      $stmt =$this ->db->prepare($sql);
@@ -70,16 +70,16 @@ class studentDAO {
  
 
    public function UpdateStudent($student){
-    $sql= "UPDATE student SET Name = '" . $student->GetName() . "',Email='" . $student-> GetEmail() ."', DateOfBirth ='" . $student->GetDateOfBirth() . "' WHERE Id = ". $student-> GetId () ;
+    $sql= "UPDATE Student SET Name = '" . $student->GetName() . "',Email='" . $student-> GetEmail() ."', DateOfBirth ='" . $student->GetDateOfBirth() . "' WHERE Id = ". $student-> GetId () ;
      $stm =$this ->db-> prepare ($sql) ;
      $stm -> execute();
      return $stm-> rowCount() ;
 
    }
 
-     public function DeleteStudent($student)
+     public function DeleteStudent($studentId)
      {
-       $sql ="DELETE FROM student WHERE Id= ". $studentId ;
+       $sql ="DELETE FROM Student WHERE Id= ". $studentId ;
        $stm = $this ->db->prepare($sql);
        $stm ->execute() ;
        return $stm->rowCount();
