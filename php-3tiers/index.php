@@ -61,8 +61,7 @@ if (isset($_REQUEST['delete']) && $_REQUEST['delete'] == 'yes') {
                 <li><a href="add.php"><span class="glyphicon glyphicon-plus"></span> Add New</a></li>
             </ul>
           
-        </div><!--/.nav-collapse -->
-    </div>
+        </div>
 </nav>
 
 <header class="page-header">
@@ -75,7 +74,7 @@ if (isset($_REQUEST['delete']) && $_REQUEST['delete'] == 'yes') {
     <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
 <?php endif; ?>
 
-<!-- Begin page content -->
+
 <section class="container">
 
      <table class="table table-bordered">
