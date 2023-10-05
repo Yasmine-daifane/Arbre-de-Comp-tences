@@ -56,4 +56,54 @@ include_once("Templates/header.php") ;
 
 
 <?php if($addSuccess === true ): ?>
-    <div class ="alert alert-success
+    <div class ="alert alert-success">Record added successfully .</div> 
+    <?php endif ;?>
+    <?php if($updateSuccess === true ): ?>
+    <div class ="alert alert-success">Record Updated successfully .</div> 
+    <?php endif ;?>
+
+    <?php if($errorMessage != ''): ?>
+    <div class ="alert alert-danger"><?php echo $errorMessage ; ?></div> 
+    <?php endif ;?>
+
+    <form action ="edit.php" method ="post" name ="studentInfoForm" id="studentInfoForm" class="form-horizontal">
+       <div class = "form-group" >
+        <label for ="studentName" class="col-sm-2 control-label">Name</label>
+        <div col-sm-4 >
+            <input type="text" value=" <?php echo $aStudent->GetName(); ?>" name="studentName" id ="studentName" class="form-control" placeholder="Name" />
+        </div>
+    </div>
+
+    <div class = "form-group" >
+        <label for ="studentEmail" class="col-sm-2 control-label">Email</label>
+        <div col-sm-4 >
+            <input type="email" value=" <?php echo $aStudent->GetEmail(); ?>" name="studentEmail" id ="studentEmail" class="form-control" placeholder="Email" />
+        </div>
+    </div>
+
+
+    <div class = "form-group" >
+        <label for ="studentDateOfBirth" class="col-sm-2 control-label">DateOfBirth</label>
+        <div col-sm-4 >
+            <input type="text" value=" <?php echo $aStudent->GetDateOfBirth(); ?>" name="studentDateOfBirth" id ="studentDateOfBirth" class="form-control" placeholder="DateOfBirth" />
+        </div>
+    </div>
+
+    <input type="hidden" value="<?php echo $aStudent->GetId(); ?>" name="studentId" id="studentId" />
+    <div class = "form-group" >
+        <div class= "col-sm-offset-2 col-sm-4" >
+            <input type="submit" name="studentSubmitButton " id="studentSubmitButton" value="Update Student" class="btn btn-primary"/>
+        </div>
+    </div>
+
+    <?php include_once ("Templates/footer.php") ;?>
+
+
+    
+
+
+
+
+
+
+    </form>
