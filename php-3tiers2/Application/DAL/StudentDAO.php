@@ -12,8 +12,6 @@ class studentDAO {
         $this->db = $this->databaseConnectionObj->connect();
     }
 
-
-
     public function GetAllStudents(){
         $sql="SELECT *FROM student";
         $raw_result =$this->db->prepare($sql);

@@ -2,8 +2,6 @@
 
 // ========= Here we have all the business logic code. It acts as an intermediary between the Presentation and Data Access Layer =========
 
-
-
 class StudentBLO {
 
 private $studentDao ;

@@ -47,14 +47,14 @@ include_once ("Templates/header.php") ;
         <div class="form-group">
             <label  fro ="studentName" class= "col-sm-2 control-label">Name</label>
             <div class="col-sm-4">
-                <input type="text" name="studentName"  id="studentName" class="form-control" placeholder="Name" />
+                <input type="text" name="studentName"  id="studentName" class="form-control" placeholder="name" />
             </div>
       </div>
 
       <div class="form-group">
             <label  fro ="studentEmail" class= "col-sm-2 control-label">Email</label>
             <div class="col-sm-4">
-                <input type="text" name="studentEmail"  id="studentEmail" class="form-control" placeholder="Email" />
+                <input type="text" name="studentEmail"  id="studentEmail" class="form-control" placeholder="email" />
             </div>
       </div>
 
@@ -62,7 +62,7 @@ include_once ("Templates/header.php") ;
       <div class="form-group">
             <label  fro ="studentDateOfBirth" class= "col-sm-2 control-label">Date Of Birth</label>
             <div class="col-sm-4">
-                <input type="text" name="studentDateOfBirth"  id="studentDateOfBirth" class="form-control" placeholder="Date Of Birth" />
+                <input type="text" name="studentDateOfBirth"  id="studentDateOfBirth" class="form-control" placeholder="dateOfBirth" />
             </div>
       </div>
 
@@ -71,6 +71,7 @@ include_once ("Templates/header.php") ;
             <input type="submit" name="studentSubmitButton" id="studentSubmitButton" value= "Add Student" class="btn btn-primary" />
         </div>
      </div>
+   
     
     </form>
 
