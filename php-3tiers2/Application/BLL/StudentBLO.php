@@ -11,7 +11,6 @@ class StudentBLO {
         $this->studentDao = new StudentDAO();
     }
   
-
     public function GetAllStudents() {
         return $this->studentDao->GetAllStudents();
     }
