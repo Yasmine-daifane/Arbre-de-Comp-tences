@@ -2,7 +2,6 @@
 
 require_once('loader.php');
 $errorMessage = '';
-
 if( isset($_POST['studentSubmitButton']) && $_POST['studentSubmitButton'] == 'Add Student' ) {
 
     $studentBllObj = new StudentBLO();

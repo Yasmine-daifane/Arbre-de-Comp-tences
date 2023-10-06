@@ -7,7 +7,7 @@
 
 
 
-class StudentBLO {
+class StudentBLO{
 
     private $studentDao;
     public $errorMessage;
